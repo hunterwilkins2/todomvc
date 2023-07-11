@@ -2,7 +2,7 @@
 
 [TodoMVC](https://todomvc.com/) is programming kata to build a todo application. This project uses Go templates, [HTML](https://htmx.org/), and sqlite3.
 
-![TodoMVC Screenshot](img/todomvc.png | width=600)
+![TodoMVC Screenshot](https://github.com/hunterwilkins2/todomvc/blob/master/img/todomvc.png)
 
 ## Getting Starting
 
