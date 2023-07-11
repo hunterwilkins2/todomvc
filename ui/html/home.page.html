@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://unpkg.com/htmx.org@1.9.2" integrity="sha384-L6OqL9pRWyyFU3+/bjdSri+iIphTN/bvYyM37tICVyOJkWZLpP2vGn6VUEXgzg6h" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../static/css/main.css">
+  <link rel="shortcut icon" href="#" />
+  
+  <title>Go • HTMX - TodoMVC</title>
+</head>
+<body>
+  <header>
+    <h1>todos</h1>
+  </header>
+
+  <main hx-trigger="load" hx-get="/todo">
+
+  </main>
+
+  <footer>
+    <small>Double-click to edit todo</small>
+    <small>Created by Hunter Wilkins</small>
+    <small>Part of TodoMVC</small>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<div id="todos">
+  {{if ne .Total 0}} 
+    <button name="toggle-todos"
+      hx-patch="/todo"
+      hx-target="#todos"
+      hx-swap="innerHTML"
+      class="complete-toggle
+        {{if eq .NotCompleted 0}}
+          all-completed
+        {{end}}
+      ">˯</button>
+  {{end}}
+  <input type="text" name="new-todo"
+  hx-post="/todo" 
+  hx-target="#todos"
+  hx-swap="innerHTML"
+  placeholder="What needs to be done?" autofocus 
+  >
+  <ul class="todo-list">
+    {{range $todo := .Todos}}
+      <div class="todo-item" id="todo-{{$todo.ID}}"
+        hx-get="/todo/{{$todo.ID}}" 
+        hx-trigger="dblclick"
+        hx-target="#todo-{{$todo.ID}}" 
+        hx-swap="innerHTML"
+      >
+        <input type="checkbox" 
+          name="completed"
+          hx-patch="/todo/{{$todo.ID}}" 
+          hx-target="#todos" 
+          hx-trigger="change"
+          hx-swap="innerHTML" 
+          {{if $todo.Completed}}
+            checked
+          {{end}}
+        >
+        <li>{{$todo.Name}}</li>
+        <button class="exit-button" hx-delete="/todo/{{$todo.ID}}" hx-target="#todos" hx-swap="innerHTML">✖</button>
+      </div>
+    {{end}}
+  </ul>
+  {{if ne .Total 0}}
+  <div class="selector">
+    <p>{{.NotCompleted}} item left</p>
+    <ul>
+      <li class="{{if eq .Query "all"}}selected{{end}}" 
+        hx-post="/query/all"
+        hx-target="#todos" 
+        hx-swap="innerHTML" 
+      >
+        All
+      </li>
+      <li class="{{if eq .Query "active"}}selected{{end}}"
+        hx-post="/query/active"
+        hx-target="#todos" 
+        hx-swap="innerHTML" 
+      >
+        Active
+      </li>
+      <li class="{{if eq .Query "completed"}}selected{{end}}"
+        hx-post="/query/completed"
+        hx-target="#todos" 
+        hx-swap="innerHTML" 
+      >
+        Completed
+      </li>
+    </ul>
+    {{if ne .Completed 0}}
+      <button name="clear-completed"
+        hx-delete="/todo"
+        hx-target="#todos"
+        hx-swap="innerHTML"
+        hx-target="">
+          Clear completed
+      </button>
+    {{end}}
+  </div>
+  {{end}}
+</div>

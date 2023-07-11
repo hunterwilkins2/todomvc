@@ -1,0 +1,218 @@
+body {
+  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 1.4em;
+  font-weight: 300;
+  background: #f5f5f5;
+  color: #4d4d4d;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header > h1 {
+  color: rgba(175, 47, 47, 0.15);
+  font-size: 100px;
+  font-weight: 100;
+}
+
+main {
+  width: 30vw;
+  min-width: 350px;
+}
+
+#todos {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"] {
+  background: #fff;
+  padding: 16px 16px 16px 60px;
+  border: none;
+  font-size: 24px;
+  line-height: 1.4em;
+  font-family: inherit;
+  font-weight: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  color: inherit;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+input:focus {
+  outline: none;
+}
+
+footer {
+  margin-top: 70px;
+  color: #bfbfbf;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.todo-list > .todo-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 15px;
+  line-height: 1.2;
+  transition: color 0.4s;
+  font-size: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.todo-item > input[type="text"] {
+  box-shadow: inset -2px -2px 5px rgba(0,0,0,0.1);
+  padding: 15px 15px 15px 12px;
+  margin: -15px;
+  margin-left: 36px;
+}
+
+.todo-item > li {
+  margin-left: 12px;
+}
+
+.todo-item > button {
+  margin-left: auto;
+}
+
+.todo-item:hover > button {
+  display: block;
+}
+
+.exit-button {
+  display: none;
+  background: none;
+	color: rgba(175, 47, 47, 0.15);
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  transition: color 0.4s;
+}
+
+exit-button:hover {
+	color: rgba(175, 47, 47, 0.8);
+}
+
+.complete-toggle {
+  appearance: none;
+  background: none;
+  color: rgba(0, 0, 0, 0.2);
+  border: none;
+  font-size: 60px;
+  position: absolute;
+  top: 124px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.all-completed {
+  color: #4d4d4d;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  font: inherit;
+  color: rgba(0, 0, 0, 0.2);
+  width: 1.15em;
+  height: 1.15em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 1.15em;
+  transform: translateY(-0.075em);
+  cursor: pointer;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 1.15em;
+  height: 1.15em;
+}
+
+input[type="checkbox"]:checked:before {
+  content: "✓";
+  transform: scale(1);
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  color: #5dc2af;
+}
+
+.selector {
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: none;
+  height: 20px;
+  position: relative;
+  color: #777;
+}
+
+.selector > ul {
+  position: absolute;
+  right: 0;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.selector::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 
+  0 9px 1px -3px rgba(0, 0, 0, 0.2),
+  0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+
+.selector > ul > li {
+  display: inline;
+  margin: 3px;
+  padding: 3px 7px;
+  cursor: pointer;
+}
+
+.selector > button {
+  float: right;
+  appearance: none;
+  border: none;
+  background: none;
+  color: #777;
+  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.selector > button:hover {
+  text-decoration: underline;
+}
+
+.selector > p {
+  float: left;
+  margin: 0;
+}
+
+.selected {
+  border: 1px solid rgba(175, 47, 47, 0.2);
+  border-radius: 3px;
+}

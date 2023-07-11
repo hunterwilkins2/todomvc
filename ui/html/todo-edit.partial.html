@@ -1,0 +1,9 @@
+<input name="edit-todo" type="text" value="{{.Name}}" 
+  hx-patch="/todo/{{.ID}}"
+  hx-target="#todos"
+  hx-swap="innerHTML"
+  hx-trigger="change"
+  autofocus
+  onfocus="var temp_value=this.value; this.value=''; this.value=temp_value"
+  onblur="htmx.ajax('PATCH', '/todo/{{.ID}}', {target: '#todos', values: { 'edit-todo': this.value} })"
+>
