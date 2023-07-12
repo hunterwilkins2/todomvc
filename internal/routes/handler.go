@@ -14,7 +14,9 @@ var (
 )
 
 func (app *Application) Home(w http.ResponseWriter, r *http.Request) {
-	err := app.templates.Render(w, "home.page.html", nil)
+	err := app.templates.Render(w, "home.page.html", struct {
+		HotReload bool
+	}{HotReload: app.config.HotReload})
 	if err != nil {
 		app.serverError(w, err)
 	}

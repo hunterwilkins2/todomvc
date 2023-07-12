@@ -42,6 +42,11 @@ func (app *Application) Routes() http.Handler {
 	mux.HandleFunc("/todo/:id", app.TodoHandler, http.MethodGet, http.MethodPatch, http.MethodDelete)
 	mux.HandleFunc("/query/:selected", app.UpdateQuery, http.MethodPost)
 
+	if app.config.HotReload {
+		mux.HandleFunc("/reload", app.hotReload)
+		mux.HandleFunc("/reload-ready", app.reloadReady)
+	}
+
 	fileServer := http.FileServer(http.Dir("./ui/static/"))
 	mux.Handle("/static/...", http.StripPrefix("/static/", fileServer), http.MethodGet)
 
